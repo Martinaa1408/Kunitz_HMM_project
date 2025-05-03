@@ -72,12 +72,9 @@ The repository is organized to reflect a logical workflow and reproducibility of
     structures for model building. 
   - The multi-structure alignment obtained from PDBeFold.
     It will be used to generate a structure-based profile HMM. (`pdb_kunitz_rp.ali`)
-  
-
-- `models/`: Includes HMMs trained using `hmmbuild`.
 
 - `scripts/`: Contains Bash and Python scripts that automate the pipeline:
-  - The main pipeline script. It automates: HMM building from alignment, dataset preparation, hmmsearch        execution, threshold optimization, performance evaluation, output saving (`create_hmm_build.sh`)
+  - The main pipeline script. It automates: HMM building from alignment, dataset preparation, hmmsearch execution, threshold optimization, performance evaluation, output saving (`create_hmm_build.sh`)
   - Python script that extracts sequences from a FASTA file based on a list of UniProt IDs.
     Used to create positive and negative sets (`get_seq.py`)
   - Extracts representative PDB IDs from the PDB CSV report, avoiding redundancy           
@@ -126,50 +123,49 @@ The repository is organized to reflect a logical workflow and reproducibility of
 To run this pipeline, the following software and packages must be installed:
 
 -Set up the conda environment:
-conda create -n hmm_kunitz python=3.10
-conda activate hmm_kunitz
+```bash conda create -n hmm_kunitz python=3.10 conda activate hmm_kunitz``` 
 
 -CD-HIT (version 4.8.1)
 Purpose: clustering and redundancy reduction of protein sequences.
-conda install -c bioconda cd-hit=4.8.1
+```bash conda install -c bioconda cd-hit=4.8.1``` 
 
 -HMMER (version 3.3.2)
 Purpose: building and searching profile Hidden Markov Models (HMMs) for protein domain detection.
-conda install -c bioconda hmmer=3.3.2
+```bash conda install -c bioconda hmmer=3.3.2``` 
 
 -BLAST+ (blastpgp legacy 2.2.26)
 Purpose: protein sequence similarity search using blastp.
-conda install -c bioconda blast-legacy=2.2.26
+```bash conda install -c bioconda blast-legacy=2.2.26``` 
 
 -Python packages
 Required for parsing FASTA files and working with sequences.
-pip install biopython
+```bash pip install biopython``` 
 
 -Useful Linux commands for PDB_report.csv
 These examples help preview and process the CSV file for extracting sequence information:
 
-# View the CSV with paging
-less PDB_report.csv
+View the CSV with paging
+```bash  less PDB_report.csv```
 
-# Remove quotes and preview selected columns
-cat PDB_report.csv | tr -d '"' | awk -F "," '{print $1, $2, $3}' | less
+Remove quotes and preview selected columns
+```bash cat PDB_report.csv | tr -d '"' | awk -F "," '{print $1, $2, $3}' | less```
 
-# Show only rows with non-empty values
-cat PDB_report.csv | tr -d '"' | awk -F "," '{if ($1!="") {print $1, $2, $3}}' | less
+Show only rows with non-empty values
+```bash cat PDB_report.csv | tr -d '"' | awk -F "," '{if ($1!="") {print $1, $2, $3}}' | less```
 
-# Skip header and format entries as FASTA (chain ID + sequence)
-cat PDB_report.csv | tr -d '"' | tail -n +3 | awk -F "," '{if ($1!="") {print ">"$5"_"$3"\\n"$2}}' > pdb_seq.fasta
+Skip header and format entries as FASTA (chain ID + sequence)
+```bash cat PDB_report.csv | tr -d '"' | tail -n +3 | awk -F "," '{if ($1!="") {print ">"$5"_"$3"\\n"$2}}' > pdb_seq.fasta```
 
-# Count number of sequences
-grep ">" pdb_seq.fasta | wc -l
+Count number of sequences
+```bash grep ">" pdb_seq.fasta | wc -l```
 
-# Show only PDB ID and chain
-cat PDB_report.csv | tr -d '"' | tail -n +3 | awk -F "," '{if ($1!="") {print $5, $3}}' | less
+Show only PDB ID and chain
+```bash cat PDB_report.csv | tr -d '"' | tail -n +3 | awk -F "," '{if ($1!="") {print $5, $3}}' | less```
 
 Web Tools:
--PDBeFold – structural alignment between PDB entries
--InterPro – domain and family annotation (e.g., PF00014)
--UniProt ID Mapping – map UniProt to PDB, RefSeq, etc.
+- [PDBeFold](https://www.ebi.ac.uk/msd-srv/ssm) – structural alignment between PDB entries  
+- [InterPro](https://www.ebi.ac.uk/interpro/) – domain and family annotation (e.g., PF00014)  
+- [UniProt ID Mapping](https://www.uniprot.org/uploadlists/) – map UniProt to PDB, RefSeq, etc.
 
 
 ## Author
