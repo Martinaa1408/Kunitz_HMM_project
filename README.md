@@ -123,7 +123,7 @@ The repository is organized to reflect a logical workflow and reproducibility of
 To run this pipeline, the following software and packages must be installed:
 
 -Set up the conda environment:
-<pre><code>```bash conda create -n hmm_kunitz python=3.10 conda activate hmm_kunitz```</code></pre>
+<pre><code>```conda create -n hmm_kunitz python=3.10 conda activate hmm_kunitz```</code></pre>
 
 -CD-HIT (version 4.8.1)
 Purpose: clustering and redundancy reduction of protein sequences.
