@@ -123,11 +123,12 @@ The repository is organized to reflect a logical workflow and reproducibility of
 To run this pipeline, the following software and packages must be installed:
 
 -Set up the conda environment:
-<pre><code>```conda create -n hmm_kunitz python=3.10 conda activate hmm_kunitz```</code></pre>
+<pre><code> conda create -n hmm_kunitz python=3.10 
+conda activate hmm_kunitz </code></pre>
 
 -CD-HIT (version 4.8.1)
 Purpose: clustering and redundancy reduction of protein sequences.
-```bash conda install -c bioconda cd-hit=4.8.1``` 
+<pre><code> conda install -c bioconda cd-hit=4.8.1 </code></pre>
 
 -HMMER (version 3.3.2)
 Purpose: building and searching profile Hidden Markov Models (HMMs) for protein domain detection.
