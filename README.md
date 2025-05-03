@@ -124,7 +124,7 @@ To run this pipeline, the following software and packages must be installed:
 
 -Set up the conda environment:
 <pre><code> conda create -n hmm_kunitz python=3.10 
-conda activate hmm_kunitz </code></pre>
+            conda activate hmm_kunitz </code></pre>
 
 -CD-HIT (version 4.8.1)
 Purpose: clustering and redundancy reduction of protein sequences.
@@ -132,36 +132,36 @@ Purpose: clustering and redundancy reduction of protein sequences.
 
 -HMMER (version 3.3.2)
 Purpose: building and searching profile Hidden Markov Models (HMMs) for protein domain detection.
-```bash conda install -c bioconda hmmer=3.3.2``` 
+<pre><code> conda install -c bioconda hmmer=3.3.2 </code></pre>
 
 -BLAST+ (blastpgp legacy 2.2.26)
 Purpose: protein sequence similarity search using blastp.
-```bash conda install -c bioconda blast-legacy=2.2.26``` 
+<pre><code> conda install -c bioconda blast-legacy=2.2.26 </code></pre>
 
 -Python packages
 Required for parsing FASTA files and working with sequences.
-```bash pip install biopython``` 
+<pre><code> pip install biopython </code></pre>
 
 -Useful Linux commands for PDB_report.csv
 These examples help preview and process the CSV file for extracting sequence information:
 
 View the CSV with paging
-```bash  less PDB_report.csv```
+<pre><code> less PDB_report.csv <pre><code>
 
 Remove quotes and preview selected columns
-```bash cat PDB_report.csv | tr -d '"' | awk -F "," '{print $1, $2, $3}' | less```
+<pre><code> cat PDB_report.csv | tr -d '"' | awk -F "," '{print $1, $2, $3}' | less </code></pre>
 
 Show only rows with non-empty values
-```bash cat PDB_report.csv | tr -d '"' | awk -F "," '{if ($1!="") {print $1, $2, $3}}' | less```
+<pre><code> cat PDB_report.csv | tr -d '"' | awk -F "," '{if ($1!="") {print $1, $2, $3}}' | less <pre><code>
 
 Skip header and format entries as FASTA (chain ID + sequence)
-```bash cat PDB_report.csv | tr -d '"' | tail -n +3 | awk -F "," '{if ($1!="") {print ">"$5"_"$3"\\n"$2}}' > pdb_seq.fasta```
+<pre><code> cat PDB_report.csv | tr -d '"' | tail -n +3 | awk -F "," '{if ($1!="") {print ">"$5"_"$3"\\n"$2}}' > pdb_seq.fasta <pre><code>
 
 Count number of sequences
-```bash grep ">" pdb_seq.fasta | wc -l```
+<pre><code> grep ">" pdb_seq.fasta | wc -l <pre><code>
 
 Show only PDB ID and chain
-```bash cat PDB_report.csv | tr -d '"' | tail -n +3 | awk -F "," '{if ($1!="") {print $5, $3}}' | less```
+<pre><code> cat PDB_report.csv | tr -d '"' | tail -n +3 | awk -F "," '{if ($1!="") {print $5, $3}}' | less <pre><code>
 
 Web Tools:
 - [PDBeFold](https://www.ebi.ac.uk/msd-srv/ssm) – structural alignment between PDB entries  
