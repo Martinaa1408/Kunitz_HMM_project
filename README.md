@@ -88,6 +88,11 @@ The repository is organized to reflect a logical workflow and reproducibility of
     Performance metrics for each test set
     Lists of false positives and false negatives
 
+- `figures/`: All the graphical outputs and visualizations generated during the project:
+  - An overlay of the predicted false positive structure aligned against known Kunitz domains. Generated      with Chimera or ChimeraX to visualize structural similarity (`superimposition.png`)
+  - Visual representation of the conserved motifs in the Kunitz domain, created from the multiple             sequence alignment used to build the profile HMM .
+  - 
+
 - `README.md`: Documentation and instructions.
 
 
