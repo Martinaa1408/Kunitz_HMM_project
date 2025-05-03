@@ -74,7 +74,7 @@ The repository is organized to reflect a logical workflow and reproducibility of
     It will be used to generate a structure-based profile HMM. (`pdb_kunitz_rp.ali`)
 
 - `scripts/`: Contains Bash and Python scripts that automate the pipeline:
-  - The main pipeline script. It automates: HMM building from alignment, dataset preparation, hmmsearch execution, threshold optimization, performance evaluation, output saving (`create_hmm_build.sh`)
+  - The main pipeline script. It automates: HMM building from alignment, dataset preparation, hmmsearch execution, threshold optimization, performance         evaluation, output saving (`create_hmm_build.sh`)
   - Python script that extracts sequences from a FASTA file based on a list of UniProt IDs.
     Used to create positive and negative sets (`get_seq.py`)
   - Extracts representative PDB IDs from the PDB CSV report, avoiding redundancy           
@@ -123,7 +123,7 @@ The repository is organized to reflect a logical workflow and reproducibility of
 To run this pipeline, the following software and packages must be installed:
 
 -Set up the conda environment:
-<pre><code> conda create -n hmm_kunitz python=3.10 
+<pre><code>conda create -n hmm_kunitz python=3.10 
 conda activate hmm_kunitz </code></pre>
 
 -CD-HIT (version 4.8.1)
@@ -141,27 +141,6 @@ Purpose: protein sequence similarity search using blastp.
 -Python packages
 Required for parsing FASTA files and working with sequences.
 <pre><code> pip install biopython </code></pre>
-
--Useful Linux commands for PDB_report.csv
-These examples help preview and process the CSV file for extracting sequence information:
-
-View the CSV with paging
-<pre><code> less PDB_report.csv <pre><code>
-
-Remove quotes and preview selected columns
-<pre><code> cat PDB_report.csv | tr -d '"' | awk -F "," '{print $1, $2, $3}' | less </code></pre>
-
-Show only rows with non-empty values
-<pre><code> cat PDB_report.csv | tr -d '"' | awk -F "," '{if ($1!="") {print $1, $2, $3}}' | less <pre><code>
-
-Skip header and format entries as FASTA (chain ID + sequence)
-<pre><code> cat PDB_report.csv | tr -d '"' | tail -n +3 | awk -F "," '{if ($1!="") {print ">"$5"_"$3"\\n"$2}}' > pdb_seq.fasta <pre><code>
-
-Count number of sequences
-<pre><code> grep ">" pdb_seq.fasta | wc -l <pre><code>
-
-Show only PDB ID and chain
-<pre><code> cat PDB_report.csv | tr -d '"' | tail -n +3 | awk -F "," '{if ($1!="") {print $5, $3}}' | less <pre><code>
 
         
 Web Tools:
