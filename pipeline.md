@@ -1,27 +1,27 @@
 ## Pipeline Overview
 
-[ UniProt / PDB ]
+STEP 1 Input Collection [ UniProt / PDB ]
 
         ↓
         
-[ Filtering / Redundancy Removal ]
+STEP 2 Filtering and Redundancy Removal [ BLAST / CD-HIT ]
 
         ↓
         
-[ MSA / PDBeFold ]
+STEP 3 Sequence and Structure Alignment [ MSA / PDBeFold ]
 
         ↓
         
-[ HMMER - hmmbuild ]
+STEP 4 HMM Construction [ HMMER - hmmbuild ]
 
         ↓
         
-[ HMMER - hmmsearch ]
+STEP 5 Domain Search [ HMMER - hmmsearch ]
 
         ↓
         
-[ Metrics Calculation ]
+STEP 6 Model Evaluation [ Metrics Calculation ]
 
         ↓
         
-[ Results & Visualizations ]
+STEP 7 Results and Visualization [ WebLogo plots - Structural overlays - Summary tables and metrics ]
