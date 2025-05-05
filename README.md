@@ -86,8 +86,7 @@ The repository is organized to reflect a logical workflow and reproducibility of
 
 - `scripts/`: Contains Bash and Python scripts that automate the pipeline:
   - The main pipeline script. It automates: HMM building from alignment, dataset preparation, hmmsearch 
-    execution, threshold optimization,    
-    performance evaluation, output saving (`create_hmm_build.sh`).
+    execution, threshold optimization, performance evaluation, output saving (`create_hmm_build.sh`).
   - Python script that extracts sequences from a FASTA file based on a list of UniProt IDs.
     Used to create positive and negative sets (`get_seq.py`).
   - Extracts representative PDB IDs from the PDB CSV report, avoiding redundancy           
