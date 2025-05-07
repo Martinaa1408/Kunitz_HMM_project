@@ -250,9 +250,18 @@ Required for parsing FASTA files and working with sequences.
 
         
 Web Tools:
-- [PDBeFold](https://www.ebi.ac.uk/msd-srv/ssm) – structural alignment between PDB entries  
-- [InterPro](https://www.ebi.ac.uk/interpro/) – domain and family annotation (e.g., PF00014)  
-- [UniProt ID Mapping](https://www.uniprot.org/uploadlists/) – map UniProt to PDB, RefSeq, etc.
+
+- [PDBeFold](https://www.ebi.ac.uk/msd-srv/ssm) – used to perform structural alignment of PDB entries 
+  containing the Kunitz domain. The resulting `.ali` file was the basis for building the HMM.
+- [Pfam – PF00014](http://pfam.xfam.org/family/PF00014) – reference source for domain profile, seed 
+  alignments, and biological information on the Kunitz-type protease inhibitor domain.
+- [InterPro](https://www.ebi.ac.uk/interpro/) – used to confirm domain annotations and explore family 
+  relationships related to PF00014.
+- [UniProt Downloads](https://www.uniprot.org/downloads) – used to obtain the complete Swiss-Prot protein 
+  dataset in FASTA format for positive and negative sequence extraction.
+- [Skylign / WebLogo](https://skylign.org/) – used to generate sequence logo visualizations from the 
+  multiple sequence alignment used in HMM construction.
+
 
 
 ## Author
