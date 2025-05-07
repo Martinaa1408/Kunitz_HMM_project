@@ -81,13 +81,16 @@ The repository is organized to reflect a logical workflow and reproducibility of
     Homo sapiens from the reference dataset (`nothuman_kunitz.fasta`).
     
 - `alignments/`: Holds alignment files used for structural model construction:
-  - The raw multi-structure alignment file downloaded from PDBeFold, containing structurally aligned PDB chains with known Kunitz domains. This file 
-    preserves spatial conservation and reflects the structural similarity among the selected representative domains (`pdb_kunitz_rp.ali`).
-  - A reformatted version of the PDBeFold alignment, converted into a simplified FASTA-like format required by hmmbuild from HMMER. Each sequence is shown 
-    in two lines: a header (starting with >) and its corresponding aligned amino acid sequence in uppercase, without gaps or extra characters. This 
+  - The raw multi-structure alignment file downloaded from PDBeFold, containing structurally aligned PDB 
+    chains with known Kunitz domains. This file preserves spatial conservation and reflects the 
+    structural similarity among the selected representative domains (`pdb_kunitz_rp.ali`).
+  - A reformatted version of the PDBeFold alignment, converted into a simplified FASTA-like format 
+    required by hmmbuild from HMMER. Each sequence is shown in two lines: a header (starting with >) and 
+    its corresponding aligned amino acid sequence in uppercase, without gaps or extra characters. This 
     ensures compatibility with downstream HMM construction (`pdb_kunitz_rp_formatted.ali`).
-  - Contains the representative, non-redundant PDB sequences selected after CD-HIT clustering (90% identity threshold). These sequences were chosen as 
-    structurally diverse exemplars of the Kunitz domain and were submitted to PDBeFold to obtain the structural alignment used for building the HMM 
+  - Contains the representative, non-redundant PDB sequences selected after CD-HIT clustering (90% 
+    identity threshold). These sequences were chosen as structurally diverse exemplars of the Kunitz 
+    domain and were submitted to PDBeFold to obtain the structural alignment used for building the HMM 
     (`pdb_kunitz_rp.fasta`).
 
 - `scripts/`: Contains Bash and Python scripts that automate the pipeline:
@@ -100,30 +103,78 @@ The repository is organized to reflect a logical workflow and reproducibility of
   - Evaluates classification performance using .class files produced by hmmsearch (`performance.py`).
 
 - `ids/`: Contains intermediate ID lists used for filtering and extraction:
-  - Contains UniProt accession IDs of sequences in all_kunitz.fasta that show high similarity (≥95% identity and ≥50% alignment coverage) to the PDB- 
-    derived sequences used in HMM construction. These are removed from the positive dataset to avoid data leakage or circular validation (`to_remove.ids`).
-  - The final cleaned list of UniProt IDs corresponding to Kunitz domain-containing proteins that are not too similar to any sequence used in the 
-    structural model. These IDs were used to extract the true positive set (ok_kunitz.fasta) (`to_keep.ids`).
-  - A comprehensive list of all UniProt IDs extracted from the all_kunitz.fasta file, which includes both human and non-human Kunitz proteins. This list 
-    serves as the initial universe of positive candidates before BLAST filtering (`all_kunitz.id`).
-  - IDs of the representative PDB sequences obtained after CD-HIT clustering of the structurally characterized Kunitz domains. Each ID corresponds to one 
-    non-redundant structure used for building the structural alignment and HMM (`pdb_kunitz_rp.ids`).
+  - Contains UniProt accession IDs of sequences in all_kunitz.fasta that show high similarity (≥95% 
+    identity and ≥50% alignment coverage) to the PDB-derived sequences used in HMM construction. These 
+    are removed from the positive dataset to avoid data leakage or circular validation (`to_remove.ids`).
+  - The final cleaned list of UniProt IDs corresponding to Kunitz domain-containing proteins that are not 
+    too similar to any sequence used in the structural model. These IDs were used to extract the true 
+    positive set (ok_kunitz.fasta) (`to_keep.ids`).
+  - A comprehensive list of all UniProt IDs extracted from the all_kunitz.fasta file, which includes both 
+    human and non-human Kunitz proteins. This list serves as the initial universe of positive candidates 
+    before BLAST filtering (`all_kunitz.id`).
+  - IDs of the representative PDB sequences obtained after CD-HIT clustering of the structurally 
+    characterized Kunitz domains. Each ID corresponds to one non-redundant structure used for building 
+    the structural alignment and HMM (`pdb_kunitz_rp.ids`).
+  - (`pos_1.ids`) List of sequence identifiers used in the pos_1.fasta file, representing proteins 
+    expected to contain the Kunitz domain. Useful for tracking, filtering, or validating specific entries 
+    in the positive training set.
+  - (`pos_2.ids`) Sequence ID list corresponding to the second positive dataset (pos_2.fasta). Allows 
+    consistent referencing or extraction of these sequences across other resources or analysis steps.
+  - (`neg_1.ids`) Contains the IDs of the sequences included in neg_1.fasta. These are presumed not to 
+    carry the Kunitz domain and are used for negative control evaluation.
+  - (`neg_2.ids`) Sequence ID list for neg_2.fasta, representing a second negative dataset. The list may 
+    be used to extract, rename, or align these entries from external databases.
     
 - `models/`: Stores the generated HMM model:
-  - The final Profile Hidden Markov Model (HMM) generated using hmmbuild (HMMER). It is constructed from the structurally aligned and reformatted 
-    sequences of representative Kunitz domains obtained via PDBeFold. This model captures the conserved structural features of the Kunitz domain and is 
-    used for scanning query protein sequences to detect similar domain architectures with hmmsearch (`structural_model.hmm`).
+  - The final Profile Hidden Markov Model (HMM) generated using hmmbuild (HMMER). It is constructed from 
+    the structurally aligned and reformatted sequences of representative Kunitz domains obtained via 
+    PDBeFold. This model captures the conserved structural features of the Kunitz domain and is 
+    used for scanning query protein sequences to detect similar domain architectures with hmmsearch 
+    (`structural_model.hmm`).
 
 - `results/`: Stores the output and evaluation results of the pipeline:
-  - (`hmm_results.txt`)
-    Final output file including:
-    Optimal E-value thresholds (based on maximum MCC)
-    Performance metrics for each test set
-    Lists of false positives and false negatives
-  - Output file from a BLASTP search comparing the non-redundant PDB Kunitz sequences (used to build the HMM) against the full set of Kunitz domain- 
-    containing sequences (all_kunitz.fasta).
-    This step identifies sequences in UniProt that are too similar to the structural training set (e.g., ≥95% identity and ≥50% alignment coverage), in 
-    order to exclude them from the positive dataset and prevent bias in model evaluation (`pdb_kunitz_nr_23.blast`).
+  - **Positive Dataset Files**--> These files contain sequences known or expected to include the Kunitz 
+    domain, and are used to evaluate the model's sensitivity (true positive rate):
+     - (`pos_1.fasta`) A FASTA file with a first curated set of protein sequences that are experimentally 
+       validated or strongly predicted to contain the Kunitz-type protease inhibitor domain. These 
+       sequences represent the positive class used for testing the model.
+     - (`pos_1.out`) The output file generated by HMMER after scanning pos_1.fasta using the trained 
+       Kunitz HMM profile. It contains domain hits, E-values, alignment scores, start/end positions of 
+       matches, and other match-specific data.
+     - (`pos_1.class`) A tabular file reporting the classification result for each sequence in 
+       pos_1.fasta. Based on the HMMER scores and thresholding (e.g., E-value cut-off), each sequence is 
+       marked as detected (1) or not detected (0).
+     - (`pos_2.fasta`) A second FASTA dataset containing additional Kunitz-positive sequences, possibly 
+       from a different taxonomic group, experimental source, or validation stage.
+     - (`pos_2.out`) HMMER search results on the pos_2.fasta sequences. Structured similarly to pos_1.out.
+     - (`pos_2.class`) Classification output for pos_2.fasta, reporting detection outcomes and allowing 
+       evaluation of model generalizability on a distinct positive set.
+  - **Negative Dataset Files**--> These files correspond to protein sequences not expected to contain the 
+    Kunitz domain, and are used to evaluate the model’s specificity and false positive rate:
+     - (`neg_1.fasta`) A FASTA file containing the first set of negative control sequences. These 
+       proteins were selected to be unrelated to the Kunitz family and serve to test the model's 
+       robustness against spurious hits.
+     - (`neg_1.out`) HMMER search output obtained by scanning neg_1.fasta with the trained HMM. Any 
+       unexpected hits in this file may suggest false positives.
+     - (`neg_1.class`) Classification result summarizing whether each sequence in neg_1.fasta was 
+       (incorrectly) matched by the model. Ideally, all entries should be classified as negative (0).
+     - (`neg_1_hits.class`) A filtered list of sequences from neg_1.fasta that produced significant 
+       matches in neg_1.out, i.e., likely false positives. This file helps quantify the model's false 
+       discovery rate.
+       (`neg_2.fasta`) A second set of background sequences, potentially more taxonomically or 
+       functionally diverse than neg_1.fasta, to further challenge the model’s specificity.
+       (`neg_2.out`) HMMER results obtained from scanning neg_2.fasta.
+       (`neg_2.class`) Classification results for the neg_2 dataset, with binary predictions per sequence.
+       (`neg_2_hits.class`) Lists false positives detected in the neg_2 set. An important file for 
+       comparative evaluation of error rates across different negative backgrounds.
+  - Output file from a BLASTP search comparing the non-redundant PDB Kunitz sequences (used to build the 
+    HMM) against the full set of Kunitz domain-containing sequences (all_kunitz.fasta).
+    This step identifies sequences in UniProt that are too similar to the structural training set (e.g., 
+    ≥95% identity and ≥50% alignment coverage), in order to exclude them from the positive dataset and 
+    prevent bias in model evaluation (`pdb_kunitz_nr_23.blast`).
+  - A high-quality, manually curated set of protein sequences confirmed to contain the Kunitz domain. 
+    This dataset may have been used for training the profile HMM, validating model predictions, or as a 
+    reference standard during benchmarking (`ok_kunitz.fasta`).
 
 - `figures/`: All the graphical outputs and visualizations generated during the project:
   - An overlay of the predicted false positive structure aligned against known Kunitz domains. Generated 
@@ -133,7 +184,8 @@ The repository is organized to reflect a logical workflow and reproducibility of
   - 
 
 - `reference/`: Includes optional external reference models:
-  - Profile HMM downloaded from Pfam, useful for comparative analysis against the custom-built structural model (`PF00014.hmm`).
+  - Profile HMM downloaded from Pfam, useful for comparative analysis against the custom-built structural 
+    model (`PF00014.hmm`).
     
 - `README.md`: Documentation and instructions.
 
