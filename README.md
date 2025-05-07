@@ -30,31 +30,41 @@ The project ensures that training and test datasets are non-overlapping, with re
 
 ## Pipeline Overview
 
-#### STEP 1 Input Collection [ UniProt / PDB ]
+### 1. Data Collection & Preprocessing
+- Download Swiss-Prot and extract all Kunitz-domain proteins (`all_kunitz.fasta`).
+- Split into human (`human_kunitz.fasta`) and non-human (`nothuman_kunitz.fasta`) sequences.
+- Download PDB-annotated sequences using a custom query (PF00014, 45–80 aa, resolution ≤ 3.5 Å).
 
-   ↓
-        
-#### STEP 2 Filtering and Redundancy Removal [ BLAST / CD-HIT ]
+### 2. Structural Dataset Construction
+- Extract sequences from the PDB CSV into FASTA.
+- Cluster sequences with CD-HIT (90% identity) to reduce redundancy.
+- Extract representative sequences (`pdb_kunitz_rp.fasta`).
 
-   ↓
-        
-#### STEP 3 Sequence and Structure Alignment [ MSA / PDBeFold ]
+### 3. Structural Alignment & HMM Building
+- Submit representative sequences to PDBeFold and download the structural alignment (`.ali`).
+- Reformat the alignment for HMMER compatibility.
+- Build the structural HMM using `hmmbuild`.
 
-   ↓
-        
-#### STEP 4 HMM Construction [ HMMER - hmmbuild ]
+### 4. Filtering for Model Evaluation
+- Run BLAST between PDB-based sequences and all Kunitz entries.
+- Remove highly similar sequences (≥95% identity and ≥50% coverage).
+- Extract the final non-redundant positive set (`ok_kunitz.fasta`).
 
-   ↓
-        
-#### STEP 5 Domain Search [ HMMER - hmmsearch ]
+### 5. Negative Dataset Generation
+- Identify Swiss-Prot sequences without Kunitz domains (`sp_negs.ids`).
+- Extract corresponding sequences to build the negative set (`sp_negs.fasta`).
 
-   ↓
-        
-#### STEP 6 Model Evaluation [ Metrics Calculation ]
+### 6. Train/Test Set Preparation
+- Randomly split positive and negative sets into training and test subsets.
+- Extract FASTA files: `pos_1.fasta`, `pos_2.fasta`, `neg_1.fasta`, `neg_2.fasta`.
 
-   ↓
-        
-#### STEP 7 Results and Visualization [ WebLogo plots - Structural overlays - Summary tables and metrics ]
+### 7. Domain Search and Evaluation
+- Use `hmmsearch` with `--max` and `-Z 1000` on all sets.
+- Generate `.class` files for each dataset.
+- Run `performance.py` across multiple E-value thresholds to evaluate and optimize model performance (MCC, precision, recall, accuracy).
+
+To see the complete implementation, refer to the Jupyter notebook:  
+[Open the pipeline notebook](./kunitz_pipeline.ipynb)
 
 
 ## Project Structure and Content Description
