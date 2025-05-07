@@ -94,12 +94,8 @@ The repository is organized to reflect a logical workflow and reproducibility of
     (`pdb_kunitz_rp.fasta`).
 
 - `scripts/`: Contains Bash and Python scripts that automate the pipeline:
-  - The main pipeline script. It automates: HMM building from alignment, dataset preparation, hmmsearch 
-    execution, threshold optimization, performance evaluation, output saving (`create_hmm_build.sh`).
   - Python script that extracts sequences from a FASTA file based on a list of UniProt IDs.
     Used to create positive and negative sets (`get_seq.py`).
-  - Extracts representative PDB IDs from the PDB CSV report, avoiding redundancy           
-    (`script_recover_representative_kunitz.sh`).
   - Evaluates classification performance using .class files produced by hmmsearch (`performance.py`).
 
 - `ids/`: Contains intermediate ID lists used for filtering and extraction:
@@ -161,11 +157,11 @@ The repository is organized to reflect a logical workflow and reproducibility of
      - (`neg_1_hits.class`) A filtered list of sequences from neg_1.fasta that produced significant 
        matches in neg_1.out, i.e., likely false positives. This file helps quantify the model's false 
        discovery rate.
-       (`neg_2.fasta`) A second set of background sequences, potentially more taxonomically or 
+     - (`neg_2.fasta`) A second set of background sequences, potentially more taxonomically or 
        functionally diverse than neg_1.fasta, to further challenge the model’s specificity.
-       (`neg_2.out`) HMMER results obtained from scanning neg_2.fasta.
-       (`neg_2.class`) Classification results for the neg_2 dataset, with binary predictions per sequence.
-       (`neg_2_hits.class`) Lists false positives detected in the neg_2 set. An important file for 
+     - (`neg_2.out`) HMMER results obtained from scanning neg_2.fasta.
+     - (`neg_2.class`) Classification results for the neg_2 dataset, with binary predictions per sequence.
+     - (`neg_2_hits.class`) Lists false positives detected in the neg_2 set. An important file for 
        comparative evaluation of error rates across different negative backgrounds.
   - Output file from a BLASTP search comparing the non-redundant PDB Kunitz sequences (used to build the 
     HMM) against the full set of Kunitz domain-containing sequences (all_kunitz.fasta).
