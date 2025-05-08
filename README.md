@@ -136,7 +136,7 @@ The repository is organized to reflect a logical workflow and reproducibility of
 - `scripts/`: Contains Bash and Python scripts that automate the pipeline:
   - Python script that extracts sequences from a FASTA file based on a list of UniProt IDs.
     Used to create positive and negative sets (`get_seq.py`).
-  - Evaluates classification performance using .class files produced by hmmsearch (`performance.py`).
+  - Evaluates classification performance using (`.class`) files produced by hmmsearch (`performance.py`).
 
 - `ids/`: Contains intermediate ID lists used for filtering and extraction:
   - Contains UniProt accession IDs of sequences in all_kunitz.fasta that show high similarity (≥95% 
@@ -147,8 +147,7 @@ The repository is organized to reflect a logical workflow and reproducibility of
   - A comprehensive list of all UniProt IDs extracted from the all_kunitz.fasta file, which includes both 
     human and non-human Kunitz proteins (`all_kunitz.id`).
   - IDs of the representative PDB sequences obtained after CD-HIT clustering of the structurally 
-    characterized Kunitz domains. Each ID corresponds to one non-redundant structure used for building 
-    the structural alignment and HMM (`pdb_kunitz_rp.ids`).
+    characterized Kunitz domains (`pdb_kunitz_rp.ids`).
   - (`pos_1.ids`) List of sequence identifiers used in the pos_1.fasta file, representing proteins 
     expected to contain the Kunitz domain.
   - (`pos_2.ids`) Sequence ID list corresponding to the second positive dataset (pos_2.fasta).
@@ -158,9 +157,7 @@ The repository is organized to reflect a logical workflow and reproducibility of
 - `models/`: Stores the generated HMM model:
   - The final Profile Hidden Markov Model (HMM) generated using hmmbuild (HMMER). It is constructed from 
     the structurally aligned and reformatted sequences of representative Kunitz domains obtained via 
-    PDBeFold. This model captures the conserved structural features of the Kunitz domain and is 
-    used for scanning query protein sequences to detect similar domain architectures with hmmsearch 
-    (`structural_model.hmm`).
+    PDBeFold (`structural_model.hmm`).
 
 - `results/`: Stores the output and evaluation results of the pipeline:
  - **Positive Dataset Files**-->These files contain sequences expected to include the Kunitz domain and 
