@@ -8,10 +8,9 @@ The project implements a binary classification system to distinguish proteins th
 ## Table of Contents
 
 - [Overview](#overview)
+- [Requirements](#requirements)
 - [Pipeline Overview](#pipeline-overview)
 - [Project Structure and Content Description](#project-structure-and-content-description)
-- [Project Objectives](#project-objectives)
-- [Requirements](#requirements)
 - [Author](#author)
 - [Acknowledgements](#acknowledgements)
 
@@ -27,6 +26,44 @@ Classification performance is assessed using standard metrics such as:
 - Matthews Correlation Coefficient (MCC)
 
 The project ensures that training and test datasets are non-overlapping, with redundancy filtered via sequence identity and alignment coverage using BLAST.
+
+## Requirements
+
+To run this pipeline, the following software and packages must be installed:
+
+-Set up the conda environment:
+<pre><code>conda create -n hmm_kunitz python=3.10 
+conda activate hmm_kunitz </code></pre>
+
+-CD-HIT (version 4.8.1)
+Purpose: clustering and redundancy reduction of protein sequences.
+<pre><code> conda install -c bioconda cd-hit=4.8.1 </code></pre>
+
+-HMMER (version 3.3.2)
+Purpose: building and searching profile Hidden Markov Models (HMMs) for protein domain detection.
+<pre><code> conda install -c bioconda hmmer=3.3.2 </code></pre>
+
+-BLAST+ (blastpgp legacy 2.2.26)
+Purpose: protein sequence similarity search using blastp.
+<pre><code> conda install -c bioconda blast-legacy=2.2.26 </code></pre>
+
+-Python packages
+Required for parsing FASTA files and working with sequences.
+<pre><code> pip install biopython </code></pre>
+
+        
+Web Tools:
+
+- [PDBeFold](https://www.ebi.ac.uk/msd-srv/ssm) – used to perform structural alignment of PDB entries 
+  containing the Kunitz domain. The resulting `.ali` file was the basis for building the HMM.
+- [Pfam – PF00014](http://pfam.xfam.org/family/PF00014) – reference source for domain profile, seed 
+  alignments, and biological information on the Kunitz-type protease inhibitor domain.
+- [InterPro](https://www.ebi.ac.uk/interpro/) – used to confirm domain annotations and explore family 
+  relationships related to PF00014.
+- [UniProt Downloads](https://www.uniprot.org/downloads) – used to obtain the complete Swiss-Prot protein 
+  dataset in FASTA format for positive and negative sequence extraction.
+- [Skylign / WebLogo](https://skylign.org/) – used to generate sequence logo visualizations from the 
+  multiple sequence alignment used in HMM construction.
 
 ## Pipeline Overview
 
@@ -196,73 +233,6 @@ The repository is organized to reflect a logical workflow and reproducibility of
 - `README.md`: Documentation and instructions.
 
 - The `.gitattributes` file ensures correct tracking of large files via LFS (Large File Storage).
-
-## Project Objectives
-
-1. Build the HMM:
-   - Download structural Kunitz sequences from PDB (PF00014).
-   - Filter redundancy with CD-HIT (≥90% identity).
-   - Align sequences and clean the MSA.
-   - Train the HMM using `hmmbuild`.
-
-2. Prepare datasets:
-   - Merge human and non-human Kunitz sequences.
-   - Remove similar sequences using `blastp`.
-   - Define positive and negative sets from SwissProt.
-   - Generate independent training and test sets.
-
-3. Run classification:
-   - Use `hmmsearch` to scan all test sequences.
-   - Extract best hits and format `.class` files with ID, label, e-value.
-
-4. Evaluate performance:
-   - Use `performance.py` to calculate precision, recall, accuracy, and MCC.
-   - Optimize classification threshold.
-   - Analyze and interpret false positives and negatives.
-
-5. Annotate SwissProt:
-   - Apply the optimized HMM to full SwissProt.
-   - Compare predictions with annotations.
-
-## Requirements
-
-To run this pipeline, the following software and packages must be installed:
-
--Set up the conda environment:
-<pre><code>conda create -n hmm_kunitz python=3.10 
-conda activate hmm_kunitz </code></pre>
-
--CD-HIT (version 4.8.1)
-Purpose: clustering and redundancy reduction of protein sequences.
-<pre><code> conda install -c bioconda cd-hit=4.8.1 </code></pre>
-
--HMMER (version 3.3.2)
-Purpose: building and searching profile Hidden Markov Models (HMMs) for protein domain detection.
-<pre><code> conda install -c bioconda hmmer=3.3.2 </code></pre>
-
--BLAST+ (blastpgp legacy 2.2.26)
-Purpose: protein sequence similarity search using blastp.
-<pre><code> conda install -c bioconda blast-legacy=2.2.26 </code></pre>
-
--Python packages
-Required for parsing FASTA files and working with sequences.
-<pre><code> pip install biopython </code></pre>
-
-        
-Web Tools:
-
-- [PDBeFold](https://www.ebi.ac.uk/msd-srv/ssm) – used to perform structural alignment of PDB entries 
-  containing the Kunitz domain. The resulting `.ali` file was the basis for building the HMM.
-- [Pfam – PF00014](http://pfam.xfam.org/family/PF00014) – reference source for domain profile, seed 
-  alignments, and biological information on the Kunitz-type protease inhibitor domain.
-- [InterPro](https://www.ebi.ac.uk/interpro/) – used to confirm domain annotations and explore family 
-  relationships related to PF00014.
-- [UniProt Downloads](https://www.uniprot.org/downloads) – used to obtain the complete Swiss-Prot protein 
-  dataset in FASTA format for positive and negative sequence extraction.
-- [Skylign / WebLogo](https://skylign.org/) – used to generate sequence logo visualizations from the 
-  multiple sequence alignment used in HMM construction.
-
-
 
 ## Author
 
