@@ -222,16 +222,16 @@ The repository is organized to reflect a logical workflow and reproducibility of
      optimal cutoff (based on MCC or F1 score).
 
 - `figures/`: All the graphical outputs and visualizations generated during the project:
-  - An overlay of the predicted false positive structure (P84555, P0DQR0, P0DQQ9, P0DQR1) 
-    aligned against known Kunitz domains (3TGI). Generated with ChimeraX to visualize 
-    structural similarity (`superimposition.png`).
+  - Structural superimposition of two predicted false negative sequences (AF-D3GGZ8 and AF-Q8WPG5) 
+    aligned against the reference Kunitz domain (3TGI) (`superimposition.png`). Visualization was 
+    performed with ChimeraX. Model colors and RMSD scores are detailed in this summary table 
+    (`details_chimera.png`).
   - (`logo_skylign.png`) logo generated from the HMM profile using Skylign; shows emission 
     probabilities and highlights 4 conserved cysteines. Skylign captures functional 
     constraints better.
   - (`Weblogo.png`) logo from the structural alignment (pdb_kunitz_rp_formatted.ali) via 
     WebLogo; shows residue frequencies across aligned positions. WebLogo is useful for 
     quickly spotting conserved motifs.
-
 
 - `reference/`: Includes optional external reference models:
   - Profile HMM downloaded from Pfam, useful for comparative analysis against the custom- 
