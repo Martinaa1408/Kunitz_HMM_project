@@ -54,13 +54,19 @@ Required for parsing FASTA files and working with sequences.
 -Python Libraries Effectively Used in Your Scripts:
 
   -**sys**: used to read command-line arguments (sys.argv).
+  
   -**math**: provides basic mathematical functions (e.g., log, sqrt).
+  
   -**matplotlib, matplotlib.pyplot**: used to generate and save plots and figures (e.g., line plots, 
    ROC curves).
+   
   -**pandas**: used to manipulate tables, read/write CSV files, and manage tabular data structures 
    (DataFrame).
+   
   -**numpy**: provides support for numerical arrays and vectorized mathematical operations.
+  
   -**sklearn.metrics**: used to compute performance metrics such as AUC and ROC curves.
+  
   -**Bio.SeqIO**: part of Biopython, used to parse and handle FASTA/FASTQ files and biological sequence
         
 Web Tools:
