@@ -31,23 +31,23 @@ The project ensures that training and test datasets are non-overlapping, with re
 
 To run this pipeline, the following software and packages must be installed:
 
--Set up the conda environment:
+-Set up the **conda environment**:
 <pre><code>conda create -n hmm_kunitz python 
 conda activate hmm_kunitz </code></pre>
 
--CD-HIT 
+-**CD-HIT** 
 Purpose: clustering and redundancy reduction of protein sequences.
 <pre><code> conda install -c bioconda cd-hit </code></pre>
 
--HMMER 
+-**HMMER**
 Purpose: building and searching profile Hidden Markov Models (HMMs) for protein domain detection.
 <pre><code> conda install -c bioconda hmmer </code></pre>
 
--BLAST+ 
+-**BLAST+**
 Purpose: protein sequence similarity search using blastp.
 <pre><code> conda install -c bioconda blast-legacy </code></pre>
 
--Python packages
+-**Python packages**
 Required for parsing FASTA files and working with sequences.
 <pre><code> pip install biopython </code></pre>
 
@@ -75,7 +75,7 @@ Required for parsing FASTA files and working with sequences.
   - Used to parse FASTA/FASTQ files and biological sequences.
 
         
-Web Tools:
+**Web Tools**:
 
 - [PDBeFold](https://www.ebi.ac.uk/msd-srv/ssm) – used to perform structural alignment of PDB entries 
   containing the Kunitz domain. The resulting `.ali` file was the basis for building the HMM.
@@ -83,8 +83,8 @@ Web Tools:
   alignments, and biological information on the Kunitz-type protease inhibitor domain.
 - [InterPro](https://www.ebi.ac.uk/interpro/) – used to confirm domain annotations and explore family 
   relationships related to PF00014.
-- [UniProt Downloads](https://www.uniprot.org/downloads) – used to obtain the complete Swiss-Prot protein 
-  dataset in FASTA format for positive and negative sequence extraction.
+- [UniProt Downloads](https://www.uniprot.org/downloads) – used to obtain the complete Swiss-Prot 
+  protein dataset in FASTA format for positive and negative sequence extraction.
 - [Skylign / WebLogo](https://skylign.org/) – used to generate sequence logo visualizations from the 
   multiple sequence alignment used in HMM construction.
 
