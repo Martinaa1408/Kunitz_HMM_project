@@ -32,25 +32,35 @@ The project ensures that training and test datasets are non-overlapping, with re
 To run this pipeline, the following software and packages must be installed:
 
 -Set up the conda environment:
-<pre><code>conda create -n hmm_kunitz python=3.10 
+<pre><code>conda create -n hmm_kunitz python 
 conda activate hmm_kunitz </code></pre>
 
--CD-HIT (version 4.8.1)
+-CD-HIT 
 Purpose: clustering and redundancy reduction of protein sequences.
-<pre><code> conda install -c bioconda cd-hit=4.8.1 </code></pre>
+<pre><code> conda install -c bioconda cd-hit </code></pre>
 
--HMMER (version 3.3.2)
+-HMMER 
 Purpose: building and searching profile Hidden Markov Models (HMMs) for protein domain detection.
-<pre><code> conda install -c bioconda hmmer=3.3.2 </code></pre>
+<pre><code> conda install -c bioconda hmmer </code></pre>
 
--BLAST+ (blastpgp legacy 2.2.26)
+-BLAST+ 
 Purpose: protein sequence similarity search using blastp.
-<pre><code> conda install -c bioconda blast-legacy=2.2.26 </code></pre>
+<pre><code> conda install -c bioconda blast-legacy </code></pre>
 
 -Python packages
 Required for parsing FASTA files and working with sequences.
 <pre><code> pip install biopython </code></pre>
 
+-Python Libraries Effectively Used in Your Scripts:
+  -sys: used to read command-line arguments (sys.argv).
+  -math: provides basic mathematical functions (e.g., log, sqrt).
+  -matplotlib, matplotlib.pyplot: used to generate and save plots and figures (e.g., line plots, ROC 
+   curves).
+  -pandas: used to manipulate tables, read/write CSV files, and manage tabular data structures 
+   (DataFrame).
+  -numpy: provides support for numerical arrays and vectorized mathematical operations.
+  -sklearn.metrics: used to compute performance metrics such as AUC and ROC curves.
+  -Bio.SeqIO: part of Biopython, used to parse and handle FASTA/FASTQ files and biological sequence
         
 Web Tools:
 
