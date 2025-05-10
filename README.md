@@ -51,24 +51,29 @@ Purpose: protein sequence similarity search using blastp.
 Required for parsing FASTA files and working with sequences.
 <pre><code> pip install biopython </code></pre>
 
-**Python Libraries** Effectively Used in Your Scripts:
+**Python Libraries Used**
 
--**sys**: used to read command-line arguments (sys.argv).
-  
--**math**: provides basic mathematical functions (e.g., log, sqrt).
-  
--**matplotlib, matplotlib.pyplot**: used to generate and save plots and figures (e.g., line 
- plots, ROC curves).
-   
--**pandas**: used to manipulate tables, read/write CSV files, and manage tabular data structures 
- (DataFrame).
-   
--**numpy**: provides support for numerical arrays and vectorized mathematical operations.
-  
--**sklearn.metrics**: used to compute performance metrics such as AUC and ROC curves.
-  
--**Bio.SeqIO**: part of Biopython, used to parse and handle FASTA/FASTQ files and biological 
- sequence
+- **sys**
+  - Used to read command-line arguments (`sys.argv`).
+
+- **math**
+  - Provides basic mathematical functions (e.g., `log`, `sqrt`).
+
+- **matplotlib** / **matplotlib.pyplot**
+  - Used to generate and save plots and figures.
+
+- **pandas**
+  - Used to manage tabular data and read/write CSV files.
+
+- **numpy**
+  - Supports numerical arrays and vectorized computations.
+
+- **sklearn.metrics**
+  - Used for performance evaluation (e.g., ROC curve, AUC).
+
+- **Bio.SeqIO** (Biopython)
+  - Used to parse FASTA/FASTQ files and biological sequences.
+
         
 Web Tools:
 
