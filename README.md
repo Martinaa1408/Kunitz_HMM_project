@@ -51,7 +51,7 @@ Purpose: protein sequence similarity search using blastp.
 Required for parsing FASTA files and working with sequences.
 <pre><code> pip install biopython </code></pre>
 
--Python Libraries Effectively Used in Your Scripts:
+**Python Libraries** Effectively Used in Your Scripts:
 
    -**sys**: used to read command-line arguments (sys.argv).
   
