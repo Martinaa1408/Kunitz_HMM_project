@@ -52,7 +52,6 @@ Required for parsing FASTA files and working with sequences.
 <pre><code> pip install biopython </code></pre>
 
 **Python Libraries** Effectively Used in Your Scripts:
-
    -**sys**: used to read command-line arguments (sys.argv).
   
    -**math**: provides basic mathematical functions (e.g., log, sqrt).
