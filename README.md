@@ -241,7 +241,7 @@ The repository is organized to reflect a logical workflow and reproducibility of
    - (`performance_set1.txt`),(`performance_set2.txt`): Evaluation results on set_1.class 
      and set_2.class at fixed threshold (e.g., 1e-5).
    - (`performance_set1_thresholds.txt`),(`performance_set2_thresholds.txt`): Metrics 
-     computed over multiple thresholds (e.g., 1e-3 to 1e-10), allowing selection of the 
+     computed over multiple thresholds (e.g., 1e-1 to 1e-10), allowing selection of the 
      optimal cutoff (based on MCC or F1 score).
 
 - `figures/`: All the graphical outputs and visualizations generated during the project:
