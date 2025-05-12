@@ -66,6 +66,8 @@ Required for parsing FASTA files and working with sequences.
 - **sklearn.metrics** --> Used for performance evaluation (e.g., ROC curve, AUC).
 
 - **Bio.SeqIO** (Biopython) --> Used to parse FASTA/FASTQ files and biological sequences.
+  
+- **Seaborn** --> To visualize the confusion matrix for model evaluation.
 
         
 **Web Tools**:
@@ -127,21 +129,22 @@ The repository is structured by function and data type to ensure clarity and rep
 
 - `data/`- Raw Input Files
   Includes all initial datasets:
-  - Swiss-Prot full set (`uniprot_sprot.fasta`).
-  - Kunitz-positive sequences (`all_kunitz.fasta`), split by species.
-  - PDB report from RCSB query (`rcsb_pdb_custom_report_20250410062557.csv`).
+  - Swiss-Prot full set (`uniprot_sprot.fasta`)
+  - Kunitz-positive sequences (`all_kunitz.fasta`), split by species
+  - PDB report from RCSB query (`rcsb_pdb_custom_report_20250410062557.csv`)
     
 - `alignments/`– Structural Alignments
   Contains structural alignment files:
-  - PDBeFold output (`pdb_kunitz_rp.ali`).
-  - Reformatted version for HMMER (`pdb_kunitz_rp_formatted.ali`).
-  - Non-redundant representative sequences (`pdb_kunitz_rp.fasta`).
+  - PDBeFold output (`pdb_kunitz_rp.ali`)
+  - Reformatted version for HMMER (`pdb_kunitz_rp_formatted.ali`)
+  - Non-redundant representative sequences (`pdb_kunitz_rp.fasta`)
     
 - `scripts/`– Automation Tools
   Python and Bash scripts to automate processing:
   - Sequence extraction (`get_seq.py`), classification scoring (`performance.py`)
   - Plotting utilities for MCC (`MCC_plot.py`) and ROC curves (`ROC_curve.py`)
   - Generates confusion matrices for Fold 1 and Fold 2 (`confusion_matrix.py`)
+  - Visualizes the RMSD vs Q-score for Kunitz domain structures (`rmsd.py`)
 
 - `ids/`– Sequence ID Lists
   Intermediate and final ID lists for:
@@ -178,6 +181,7 @@ The repository is structured by function and data type to ensure clarity and rep
   - Domain logos (`logo_skylign.png`),(`Weblogo.png`)
   - Performance plots (`roc_curve_evalue_sets.png`),(`mcc_plot_from_threshold_files.png`)
   - Confusion matrices (`confusion_matrix_fold1_blues.png`),(`confusion_matrix_fold2_greens.png`)
+  - Scatter plot showing structural alignment of candidate domains (`kunitz_structures_scatter.png`)
 
 - `reference/`– External Benchmark
   - Pfam HMM used for comparison (`PF00014.hmm`)
