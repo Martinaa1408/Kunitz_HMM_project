@@ -141,6 +141,7 @@ The repository is structured by function and data type to ensure clarity and rep
   Python and Bash scripts to automate processing:
   - Sequence extraction (`get_seq.py`), classification scoring (`performance.py`)
   - Plotting utilities for MCC (`MCC_plot.py`) and ROC curves (`ROC_curve.py`)
+  - Generates confusion matrices for Fold 1 and Fold 2 (`confusion_matrix.py`)
 
 - `ids/`– Sequence ID Lists
   Intermediate and final ID lists for:
@@ -176,6 +177,7 @@ The repository is structured by function and data type to ensure clarity and rep
   - Structural overlays (`superimposition.png`)
   - Domain logos (`logo_skylign.png`),(`Weblogo.png`)
   - Performance plots (`roc_curve_evalue_sets.png`),(`mcc_plot_from_threshold_files.png`)
+  - Confusion matrices (`confusion_matrix_fold1_blues.png`),(`confusion_matrix_fold2_greens.png`)
 
 - `reference/`– External Benchmark
   - Pfam HMM used for comparison (`PF00014.hmm`)
