@@ -147,7 +147,7 @@ The repository is structured by function and data type to ensure clarity and rep
 - `scripts/`– Automation Tools
   Python and Bash scripts to automate processing:
   - Sequence extraction (`get_seq.py`), classification scoring (`performance.py`)
-  - Plotting utilities for MCC (`MMC_plot.py`) and ROC curves (`ROC_curve.py`)
+  - Plotting utilities for MCC (`MCC_plot.py`) and ROC curves (`ROC_curve.py`)
 
 - `ids/`– Sequence ID Lists
   Intermediate and final ID lists for:
