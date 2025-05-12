@@ -177,7 +177,8 @@ The repository is structured by function and data type to ensure clarity and rep
       - (`*_thresholds.txt`): Precision, recall, F1, MCC across E-value cutoff
  
 - `figures/`– Visualizations
-  - Structural overlays (`superimposition.png`)
+  - Structural overlays (`superimposition.png`) with session panel and Matchmaker summary     
+    (`details_chimera.png`)
   - Domain logos (`logo_skylign.png`),(`Weblogo.png`)
   - Performance plots (`roc_curve_evalue_sets.png`),(`mcc_plot_from_threshold_files.png`)
   - Confusion matrices (`confusion_matrix_fold1_blues.png`),(`confusion_matrix_fold2_greens.png`)
