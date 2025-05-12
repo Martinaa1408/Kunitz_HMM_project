@@ -169,7 +169,7 @@ The repository is structured by function and data type to ensure clarity and rep
       - (`*.out`),(`*.class`),(`*_hits.class`): HMMER outputs and false positives
 
   - False Negative Analysis
-      - (`fn_pos1.txt, fn_pos2.txt: Misclassified true positives with E-value > 1e-5
+      - (`fn_pos1.txt`),(`fn_pos2.txt`): Misclassified true positives with E-value > 1e-5
         
   - BLAST Filtering and Clean Positive Dataset
       - (`pdb_kunitz_nr_23.blast`): BLASTP hits vs training set
