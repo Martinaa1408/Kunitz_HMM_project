@@ -1,1 +1,0 @@
-Usage: python3 performance.py <input.class> <threshold>
