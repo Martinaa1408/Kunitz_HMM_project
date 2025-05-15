@@ -188,10 +188,13 @@ The repository is structured by function and data type to ensure clarity and rep
     
 - `README.md` and `.gitattributes`
   - Project documentation and Git LFS tracking for large files
+
+- `.gitignore`
+  - The .gitignore file excludes temporary files, generated outputs, and notebook checkpoints from 
+    version control.
     
 - `Diagram.png`
   - The graphical pipeline used in the report was created with [draw.io](https://www.drawio.com/)
-
 
  
 ## Author
