@@ -185,6 +185,9 @@ The repository is structured by function and data type to ensure clarity and rep
 
 - `reference/`– External Benchmark
   - Pfam HMM used for comparison (`PF00014.hmm`)
+  - (`pfam_set1.class`) / (`pfam_set2.class`): Ground truth labels and e-values for evaluation on Set1      and Set2.
+  - (`pfam_set1_thresholds.txt`) / (`pfam_set2_thresholds.txt`): Performance metrics computed at   
+    multiple thresholds for each test set.
     
 - `README.md` and `.gitattributes`
   - Project documentation and Git LFS tracking for large files
