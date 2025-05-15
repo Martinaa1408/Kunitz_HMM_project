@@ -30,7 +30,7 @@ plt.text(best_threshold_mean, best_mcc_mean + 0.001, f' Best: {best_threshold_me
 # Final layout
 plt.xlabel('E-value Threshold')
 plt.ylabel('MCC (Matthews Correlation Coefficient)')
-plt.title('MCC vs Threshold – Mean Best Point Only')
+plt.title('MCC values for different E-value Thresholds (Set1 vs. Set2)')
 plt.xticks(rotation=45)
 plt.legend()
 plt.grid(True)
