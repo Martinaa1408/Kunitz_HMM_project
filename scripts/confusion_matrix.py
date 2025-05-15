@@ -8,7 +8,7 @@ import seaborn as sns
 # === Confusion Matrix - Fold 1 (Set 1) ===
 fold1 = pd.DataFrame(
     [[283999, 0],
-     [2, 181]],
+     [0, 181]],
     index=["Actual Negative", "Actual Positive"],
     columns=["Predicted Negative", "Predicted Positive"]
 )
@@ -16,7 +16,7 @@ fold1 = pd.DataFrame(
 # === Confusion Matrix - Fold 2 (Set 2) ===
 fold2 = pd.DataFrame(
     [[283922, 0],
-     [2, 181]],
+     [0, 181]],
     index=["Actual Negative", "Actual Positive"],
     columns=["Predicted Negative", "Predicted Positive"]
 )
