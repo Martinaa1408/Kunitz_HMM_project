@@ -121,7 +121,7 @@ Required for parsing FASTA files and working with sequences.
 performance (MCC, precision, recall, accuracy).
 
 To see the complete implementation, refer to the Jupyter notebook:  
-[Open the pipeline notebook](./kunitz_pipeline.ipynb)
+[Open the pipeline notebook](./kunitz_pipeline.pdf)
 
 
 ## Project Structure and Content Description
