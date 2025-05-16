@@ -1,0 +1,90 @@
+
+Confusion Matrix:
+TN = 286378 FN = 0
+FP = 39 TP = 183
+Threshold: 0.1
+Q2 (Accuracy): 0.9999
+MCC: 0.9079
+TPR (Recall): 1.0
+PPV (Precision): 0.8243
+
+Confusion Matrix:
+TN = 286403 FN = 0
+FP = 14 TP = 183
+Threshold: 0.01
+Q2 (Accuracy): 1.0
+MCC: 0.9638
+TPR (Recall): 1.0
+PPV (Precision): 0.9289
+
+Confusion Matrix:
+TN = 286412 FN = 1
+FP = 5 TP = 182
+Threshold: 0.001
+Q2 (Accuracy): 1.0
+MCC: 0.9838
+TPR (Recall): 0.9945
+PPV (Precision): 0.9733
+
+Confusion Matrix:
+TN = 286415 FN = 1
+FP = 2 TP = 182
+Threshold: 0.0001
+Q2 (Accuracy): 1.0
+MCC: 0.9918
+TPR (Recall): 0.9945
+PPV (Precision): 0.9891
+
+Confusion Matrix:
+TN = 286416 FN = 2
+FP = 1 TP = 181
+Threshold: 1e-05
+Q2 (Accuracy): 1.0
+MCC: 0.9918
+TPR (Recall): 0.9891
+PPV (Precision): 0.9945
+
+Confusion Matrix:
+TN = 286417 FN = 2
+FP = 0 TP = 181
+Threshold: 1e-06
+Q2 (Accuracy): 1.0
+MCC: 0.9945
+TPR (Recall): 0.9891
+PPV (Precision): 1.0
+
+Confusion Matrix:
+TN = 286417 FN = 3
+FP = 0 TP = 180
+Threshold: 1e-07
+Q2 (Accuracy): 1.0
+MCC: 0.9918
+TPR (Recall): 0.9836
+PPV (Precision): 1.0
+
+Confusion Matrix:
+TN = 286417 FN = 3
+FP = 0 TP = 180
+Threshold: 1e-08
+Q2 (Accuracy): 1.0
+MCC: 0.9918
+TPR (Recall): 0.9836
+PPV (Precision): 1.0
+
+Confusion Matrix:
+TN = 286417 FN = 3
+FP = 0 TP = 180
+Threshold: 1e-09
+Q2 (Accuracy): 1.0
+MCC: 0.9918
+TPR (Recall): 0.9836
+PPV (Precision): 1.0
+
+Confusion Matrix:
+TN = 286417 FN = 3
+FP = 0 TP = 180
+Threshold: 1e-10
+Q2 (Accuracy): 1.0
+MCC: 0.9918
+TPR (Recall): 0.9836
+PPV (Precision): 1.0
