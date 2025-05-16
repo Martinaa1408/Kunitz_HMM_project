@@ -106,8 +106,10 @@ Required for parsing FASTA files and working with sequences.
 - Extract the final non-redundant positive set (`ok_kunitz.fasta`).
 
 ### 5. Negative Dataset Generation
-- Identify Swiss-Prot sequences without Kunitz domains (`sp_negs.ids`).
-- Extract corresponding sequences to build the negative set (`sp_negs.fasta`).
+- Identify non-Kunitz sequences using the (`to_keep.ids`) list, previously filtered to exclude any known 
+  Kunitz-domain proteins.
+- Randomly sample two balanced subsets ((`neg_1.ids`) and (`neg_2.ids`)) from (`to_keep.ids`) to serve as 
+  negative test sets.
 
 ### 6. Train/Test Set Preparation
 - Randomly split positive and negative sets into training and test subsets.
