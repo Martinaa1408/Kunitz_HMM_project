@@ -158,36 +158,40 @@ The repository is structured by function and data type to ensure clarity and rep
 
 - `results/`– Output and Evaluation Results
   Organized into thematic sections:
+  
+  -(`set_1_finale.class`),(`set_2_finale.class`): Final evaluation sets obtained by concatenating .class 
+   files from pos_1, neg_1 and pos_2, neg_2 after hmmsearch
+  
   - Positive Dataset Files
       - (`pos_1.fasta`),(`pos_2.fasta`): Curated test sets
       - (`*.out`),(`*.class`): HMMER scan results and classification tables
 
   - Negative Dataset Files
       - (`neg_1.fasta`),(`neg_2.fasta`): Swiss-Prot negatives
-      - (`*.out`),(`*.class`),(`*_hits.class`): HMMER outputs and false positives
+      - (`*.out`),(`*.class`),(`*_real.class`): HMMER outputs and false positives
 
   - False Negative Analysis
-      - (`fn_pos1.txt`),(`fn_pos2.txt`): Misclassified true positives with E-value > 1e-5
+      - (`fn_pos1.txt`),(`fn_pos2.txt`): Misclassified true positives with E-value > 1e-6
         
   - BLAST Filtering and Clean Positive Dataset
       - (`pdb_kunitz_nr_23.blast`): BLASTP hits vs training set
       - (`ok_kunitz.fasta`): Final non-redundant positive set
 
   - Performance Evaluation Files
-      - (`performance_set*_thresholds_final.txt`): Precision, recall, F1, MCC across E-value cutoff
+      - (`performance_set*_real.txt`): Precision, recall, F1, MCC across E-value cutoff
  
 - `figures/`– Visualizations
   - Structural overlays (`superimposition.png`) with session panel and Matchmaker summary     
     (`details_chimera.png`)
   - Domain logos (`logo_skylign.png`),(`Weblogo.png`)
-  - Performance plots (`roc_curve_evalue_sets.png`),(`mcc_threshold_files.png`)
+  - Performance plots (`roc_curve_evalue_sets.png`),(`mcc_thresholds_.png`)
   - Confusion matrices (`confusion_matrix_fold1_blues.png`),(`confusion_matrix_fold2_greens.png`)
   - Scatter plot showing structural alignment of candidate domains (`kunitz_structures_scatter.png`)
 
 - `reference/`– External Benchmark
   - Pfam HMM used for comparison (`PF00014.hmm`)
-  - (`pfam_set1.class`) / (`pfam_set2.class`): Ground truth labels and e-values for evaluation on Set1      and Set2.
-  - (`pfam_set1_thresholds.txt`) / (`pfam_set2_thresholds.txt`): Performance metrics computed at   
+  - (`set_1_pfam.class`) / (`set_2_pfam.class`): Ground truth labels and e-values for evaluation on Set1        and Set2.
+  - (`results_set1.txt`) / (`results_set2.txt`): Performance metrics computed at   
     multiple thresholds for each test set.
     
 - `README.md` and `.gitattributes`
