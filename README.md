@@ -53,10 +53,6 @@ Required for parsing FASTA files and working with sequences.
 
 **Python Libraries Used**
 
-- **sys** --> Used to read command-line arguments (`sys.argv`).
-
-- **math** --> Provides basic mathematical functions (e.g., `log`, `sqrt`).
-
 - **matplotlib** / **matplotlib.pyplot** --> Used to generate and save plots and figures.
 
 - **pandas** --> Used to manage tabular data and read/write CSV files.
