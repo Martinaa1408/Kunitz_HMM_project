@@ -190,7 +190,7 @@ The repository is structured by function and data type to ensure clarity and rep
   - (`results_set1.txt`) / (`results_set2.txt`): Performance metrics computed at   
     multiple thresholds for each test set.
     
-- `final report/`– Final Report
+- `final report/`– Final Project Report
   - Contains the complete scientific report (`Lab1report_Castellucci.pdf`) detailing the methodology,   
     results, and conclusions.
     
