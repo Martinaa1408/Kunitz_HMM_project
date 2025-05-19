@@ -214,7 +214,7 @@ Email: martina.castellucci@studio.unibo.it
 
 ## Acknowledgements
 
-This project was developed as part of a [Laboratory of Bioinformatics 1 (LAB1)](https://www.unibo.it/en/study/course-units-transferable-skills-moocs/course-unit-catalogue/course-unit/2024/504333) course during my MSc in Bioinformatics at the University of Bologna. assignment during my MSc in Bioinformatics at the University of Bologna.
+This project was developed as part of a [Laboratory of Bioinformatics 1 (LAB1)](https://www.unibo.it/en/study/course-units-transferable-skills-moocs/course-unit-catalogue/course-unit/2024/504333) course assignment during my MSc in Bioinformatics at the University of Bologna.
 The goal of the project was to integrate structural bioinformatics, sequence analysis, and statistical evaluation of predictive models.
 This research was carried out under the guidance of **Professor Emidio Capriotti**, Associate Professor at the University of Bologna.
 
