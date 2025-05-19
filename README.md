@@ -187,7 +187,7 @@ The repository is structured by function and data type to ensure clarity and rep
 - `reference/`– External Benchmark
   - Pfam HMM used for comparison (`PF00014.hmm`)
   - (`set_1_pfam.class`) / (`set_2_pfam.class`): Ground truth labels and e-values for evaluation on Set1        and Set2.
-  - (`results_set1.txt`) / (`results_set2.txt`): Performance metrics computed at   
+  - (`martina_results_set1.txt`) / (`martina_results_set2.txt`): Performance metrics computed at   
     multiple thresholds for each test set.
     
 - `final report/`– Final Project Report
