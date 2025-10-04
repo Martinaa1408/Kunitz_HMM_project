@@ -1,5 +1,10 @@
-
 # Kunitz Domain Classifier using Profile HMM
+
+[![Profile HMM](https://img.shields.io/badge/Profile_HMM-1E90FF?logo=gnu&logoColor=white)](https://en.wikipedia.org/wiki/Hidden_Markov_model)
+[![Kunitz Domain](https://img.shields.io/badge/Kunitz_Domain-8B0000?logo=databricks&logoColor=white)](https://en.wikipedia.org/wiki/Kunitz_domain)
+[![Chimera](https://img.shields.io/badge/Chimera-32CD32?logo=pycharm&logoColor=white)](https://www.cgl.ucsf.edu/chimera/)
+[![HMMER](https://img.shields.io/badge/HMMER-FF4500?logo=gnu-bash&logoColor=white)](http://hmmer.org/)
+[![Structural Alignment](https://img.shields.io/badge/Structural_Alignment-6A5ACD?logo=helix&logoColor=white)](https://en.wikipedia.org/wiki/Structural_alignment)
 
 This repository presents a comprehensive and reproducible pipeline to construct and evaluate a Profile Hidden Markov Model (HMM) aimed at recognizing Kunitz-type protease inhibitor domains (Pfam ID: PF00014) within protein sequences. These domains are well-conserved and are critical for inhibiting serine proteases, playing an important role in biological functions like inflammation, coagulation, and immune response regulation.
 
