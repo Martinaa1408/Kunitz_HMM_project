@@ -223,3 +223,4 @@ This project was developed as part of a [Laboratory of Bioinformatics 1 (LAB1)](
 The goal of the project was to integrate structural bioinformatics, sequence analysis, and statistical evaluation of predictive models.
 This research was carried out under the guidance of **Professor Emidio Capriotti**, Associate Professor at the University of Bologna.
 
+<!-- small edit for PR test -->
